@@ -27,14 +27,17 @@ function getDataFromSpotify(band, callback){
         limit: 1
     }
     // console.log("here");
-    console.log($.getJSON(SPOTIFY_BASE_URL, query, callback));
+    // console.log($.getJSON(SPOTIFY_BASE_URL, query, callback));
     $.getJSON(SPOTIFY_BASE_URL, query, callback);
 }
 
 function spotifyResults(data){
     // data.
     // alert("here");
-    console.log(data);
+    // console.log(data)
+    spotifyData.push(data);
+    // console.log(data.artists.items[0].name);
+    console.log(spotifyData);
 }
 
 function tasteDiveResults(data){
@@ -43,10 +46,10 @@ function tasteDiveResults(data){
         // console.log(similarArtists[index].Name)
         // getDataFromSpotify(similarArtists[index].Name, spotifyResults);
     })
-    showResults(similarArtists);
+    sendResultsToSpotify(similarArtists);
 }
 
-function showResults(similarArtists){
+function sendResultsToSpotify(similarArtists){
     // console.log(similarArtists);
     similarArtists.forEach(function(item, index){
         getDataFromSpotify(item.Name, spotifyResults);
