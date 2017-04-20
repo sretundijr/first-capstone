@@ -32,12 +32,9 @@ function getDataFromSpotify(band, callback){
 }
 
 function spotifyResults(data){
-    // data.
-    // alert("here");
-    // console.log(data)
     spotifyData.push(data);
     // console.log(data.artists.items[0].name);
-    console.log(spotifyData);
+    // console.log(spotifyData);
 }
 
 function tasteDiveResults(data){
