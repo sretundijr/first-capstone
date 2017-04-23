@@ -18,10 +18,10 @@ var state = {
 function getDataFromTasteDive(searchTerm, callback) {
     var query = {
         q: searchTerm,
-        type: "artist",
+        type: "music",
         info: 1,
         limit: 10,
-        key: "267313-capstone-CI6ZV80O" //you see nothing
+        key: "268196-Similara-AYQO3GFI" //you see nothing
     }
     // console.log($.getJSON(TASTE_DIVE_BASE_URL, query, callback));
     $.getJSON(TASTE_DIVE_BASE_URL, query, callback);
@@ -52,6 +52,7 @@ function tasteDiveResults(data) {
         // console.log(similarArtists[index].Name)
         // getDataFromSpotify(similarArtists[index].Name, spotifyResults);
     })
+    // console.log(state.similarArtists[0]);
     render();
 }
 
@@ -66,20 +67,23 @@ function sendResultsToSpotify(similarArtists) {
 // getTasteDiveResults.then(sendResultsToSpotify).resolve()
 function render() {
     if (state.hasArtists()) {
-        var artists = state.similarArtists.map(function (item) {
-            return "<li>" + item.Name + "</li>";
+        var artists = state.similarArtists.map(function (item, index) {
+            // return "<li>" + item.Name + "</li>";
+            return htmlTemplate(item, index)
         });
-        $(".artists").html(artists.join(""));
+        $(".js-results").html(artists.join(""));
     } else {
-        console.log('here');
+        // console.log('here');
         getDataFromTasteDive(state.query, tasteDiveResults);
     }
 
     if (state.hasSpotifyData()) {
-        var images = state.spotifyData.map(function (item) {
-            return "<img class='thumbnail' src='" + item.artists.items[0].images[0].url + "'/>";
+        var images = state.spotifyData.map(function (item, index) {
+            // return "<img class='thumbnail' src='" + item.artists.items[0].images[0].url + "'/>";
+            // return htmlTemplate(item, index);
+            return htmlArtistImg(item, index);
         });
-        $(".images").html(images.join(""));
+        $(".img-container").html(images.join(""));
     } else if (state.similarArtists) {
         sendResultsToSpotify(state.similarArtists);
     }
@@ -90,27 +94,34 @@ function watchSubmit() {
         e.preventDefault();
         var query = $(this).find('.js-query').val();
         state.query = query;
-        console.log(state.query);
+        // console.log(state.query);
         render();
     });
 }
 
-function htmlTemplate(state) {
+function htmlTemplate(state, index) {
+    // console.log(state);
     var html = '<div class="row main-container">' +
         '<div class="col-8">' +
         '<div class="artist-container">' +
-        '<h3>' + state.similarArtists[0] + '</h3>' +
-        '<p>description</p>' +
-        '<button>play album</button>' +
+        '<h3>' + state.Name + '</h3>' +
+        '<p>' + state.wTeaser + '</p>' +
+        '<button class="js-play-artist play-artist">play album</button>' +
         '</div>' +
         '</div>' +
         '<div class="col-4">' +
         '<div class="img-container">' +
-        '<img class="artist-img" src="http://placeimg.com/640/480/any" alt="placeholder">' +
+
         '</div>' +
         '</div>' +
         '</div>'
 
+    return html;
+}
+
+function htmlArtistImg(state, index) {
+    console.log(state);
+    var html = '<img class="artist-img" src="' + state.artists.items[0].images[0].url + '" alt="placeholder">';
     return html;
 }
 

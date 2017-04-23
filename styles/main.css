@@ -22,3 +22,9 @@
     height: 100%;
     width: 100%;
 }
+
+.play-artist{
+    width: 100px;
+    height: 35px;
+    /*background-color: lightblue;*/
+}
