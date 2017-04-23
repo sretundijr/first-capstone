@@ -19,7 +19,7 @@
 	clear: both;
 }
 
-.col-4, .col-6, .col-12{
+.col-4, .col-6, .col-8, .col-12{
 	float: left;
 	/*gutters*/
 	padding-left: 1.04166666px;
@@ -27,7 +27,7 @@
 }
 
 /*mobile defaults*/
-.col-4, .col-6, .col-12{
+.col-4, .col-6, .col-8 .col-12{
 	width: 100%;
 }
 
@@ -37,6 +37,9 @@
 	}
 	.col-6{
 		width: 50%;
+	}
+	.col-8{
+		width: 66.666%;
 	}
 	.col-12{
 		width: 100%;

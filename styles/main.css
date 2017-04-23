@@ -1,3 +1,24 @@
 /*h1{
     text-align: center;
 }*/
+/*.thumbnail {
+    height: 100px;
+    width: 100px;
+}*/
+.main-container{
+    border: 1px black solid;
+    /*padding: 10px;*/
+}
+
+.artist-container{
+    padding: 10px;
+}
+
+.img-container{
+    padding: 10px 0 10px 10px;
+}
+
+.artist-img{
+    height: 100%;
+    width: 100%;
+}
