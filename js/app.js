@@ -19,7 +19,7 @@ var state = {
 function getDataFromTasteDive(searchTerm, callback) {
     var query = {
         q: searchTerm,
-        type: "music",
+        type: "artist",
         info: 1,
         limit: 10,
         key: "268196-Similara-AYQO3GFI" //you see nothing
@@ -73,7 +73,7 @@ function renderArtistImage() {
         var html = htmlArtistImg(item, index);
         $(".img-container").eq(index).html(html);
     })
-    console.log(state.spotifyData);
+    // console.log(state.spotifyData);
 }
 
 function watchSubmit() {
