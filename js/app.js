@@ -1,6 +1,7 @@
 // alert("hello");
 
-var TASTE_DIVE_BASE_URL = 'https://tastedive.com/api/similar?callback=?';
+// var TASTE_DIVE_BASE_URL = 'https://tastedive.com/api/similar?callback=?';
+var TASTE_DIVE_BASE_URL = 'https://private-8723d-tastedive.apiary-mock.com/api/similar';
 
 var SPOTIFY_BASE_URL = "https://api.spotify.com/v1/search";
 
@@ -23,7 +24,6 @@ function getDataFromTasteDive(searchTerm, callback) {
         limit: 10,
         key: "268196-Similara-AYQO3GFI" //you see nothing
     }
-    // console.log($.getJSON(TASTE_DIVE_BASE_URL, query, callback));
     $.getJSON(TASTE_DIVE_BASE_URL, query, callback);
 }
 
@@ -33,80 +33,65 @@ function getDataFromSpotify(band, callback) {
         type: "artist",
         limit: 1
     }
-    // console.log("here");
-    // console.log($.getJSON(SPOTIFY_BASE_URL, query, callback));
     $.getJSON(SPOTIFY_BASE_URL, query, callback);
 }
 
 function spotifyResults(data) {
     state.spotifyData.push(data);
-    // console.log(data.artists.items[0].name);
-    //console.log(state.spotifyData);
-    render();
+    renderArtistImage();
 }
 
 function tasteDiveResults(data) {
     console.log(data);
     data.Similar.Results.forEach(function (item, index) {
         state.similarArtists.push(item);
-        // console.log(similarArtists[index].Name)
-        // getDataFromSpotify(similarArtists[index].Name, spotifyResults);
     })
-    // console.log(state.similarArtists[0]);
-    render();
+    renderSimilarArtist();
 }
 
 function sendResultsToSpotify(similarArtists) {
-    // console.log(similarArtists);
     similarArtists.forEach(function (item, index) {
         getDataFromSpotify(item.Name, spotifyResults);
     })
-    // render();
 }
-// (getTasteDiveResults, sendResultsToSpotify).value => {similarArtists[]: spotify}
-// getTasteDiveResults.then(sendResultsToSpotify).resolve()
-function render() {
+
+function renderSimilarArtist() {
+
     if (state.hasArtists()) {
         var artists = state.similarArtists.map(function (item, index) {
-            // return "<li>" + item.Name + "</li>";
             return htmlTemplate(item, index)
         });
         $(".js-results").html(artists.join(""));
+        sendResultsToSpotify(state.similarArtists);
     } else {
-        // console.log('here');
         getDataFromTasteDive(state.query, tasteDiveResults);
     }
-
-    if (state.hasSpotifyData()) {
-        var images = state.spotifyData.map(function (item, index) {
-            // return "<img class='thumbnail' src='" + item.artists.items[0].images[0].url + "'/>";
-            // return htmlTemplate(item, index);
-            return htmlArtistImg(item, index);
-        });
-        $(".img-container").html(images.join(""));
-    } else if (state.similarArtists) {
-        sendResultsToSpotify(state.similarArtists);
-    }
-
 }
+
+function renderArtistImage() {
+    state.spotifyData.forEach(function (item, index) {
+        var html = htmlArtistImg(item, index);
+        $(".img-container").eq(index).html(html);
+    })
+    console.log(state.spotifyData);
+}
+
 function watchSubmit() {
     $('.js-search-form').submit(function (e) {
         e.preventDefault();
         var query = $(this).find('.js-query').val();
         state.query = query;
-        // console.log(state.query);
-        render();
+        renderSimilarArtist();
     });
 }
 
 function htmlTemplate(state, index) {
-    // console.log(state);
     var html = '<div class="row main-container">' +
         '<div class="col-8">' +
         '<div class="artist-container">' +
         '<h3>' + state.Name + '</h3>' +
         '<p>' + state.wTeaser + '</p>' +
-        '<button class="js-play-artist play-artist">play album</button>' +
+        // '<button class="js-play-artist play-artist">play album</button>' +
         '</div>' +
         '</div>' +
         '<div class="col-4">' +
@@ -120,8 +105,13 @@ function htmlTemplate(state, index) {
 }
 
 function htmlArtistImg(state, index) {
-    console.log(state);
-    var html = '<img class="artist-img" src="' + state.artists.items[0].images[0].url + '" alt="placeholder">';
+    var html = '<img class="artist-img" src="' +
+        state.artists.items[0].images[0].url + '" alt="placeholder">' +
+        '<iframe src="https://open.spotify.com/embed?uri=spotify:' +
+        'artist:' + state.artists.items[0].id + '"' +
+        'width="300" height="80" frameborder="0"' +
+        'allowtransparency="true">' +
+        '</iframe >';
     return html;
 }
 
