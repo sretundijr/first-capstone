@@ -10,16 +10,13 @@ var state = {
     // spotifyData: [],
     hasArtists: function () {
         return this.similarArtists.length > 0;
-    },
-    hasSpotifyData: function () {
-        return this.spotifyData.length > 0;
     }
 };
 
 function getDataFromTasteDive(searchTerm) {
     var query = {
         q: searchTerm,
-        type: "artist",
+        type: "music",
         info: 1,
         limit: 10,
         key: "268196-Similara-AYQO3GFI" //you see nothing
@@ -38,19 +35,14 @@ function getDataFromSpotify(band) {
 
 function spotifyResults(data) {
     state.similarArtists.forEach(function (art, index) {
-        //TODO: Point to album and thumbinal
         art.Thumbnail = data[index].artists.items[0].images;
         art.ArtistId = data[index].artists.items[0].id;
-        // console.debug(data[index].artists.items[0].images);
-
     })
-    //state.spotifyData.push(data);
-    // renderArtistImages();
     renderSimilarArtists();
 }
 
 function tasteDiveResults(data) {
-    // console.log(data);
+    console.debug(data);
     data.Similar.Results.forEach(function (item, index) {
         state.similarArtists.push(item);
     })
@@ -59,7 +51,6 @@ function tasteDiveResults(data) {
 }
 
 function sendResultsToSpotify(data) {
-    // console.debug(data);
     var promises = data.map(function (item, index) {
         return getDataFromSpotify(item.Name);
     })
@@ -72,21 +63,12 @@ function renderSimilarArtists() {
         var artists = state.similarArtists.map(function (item, index) {
             return htmlTemplate(item, index)
         });
-        // console.debug(artists.join(""));
         $(".js-results").html(artists.join(""));
 
     } else {
         getDataFromTasteDive(state.query).then(tasteDiveResults);
     }
 }
-
-// function renderArtistImages() {
-//     state.spotifyData.forEach(function (item, index) {
-//         var html = htmlArtistImg(item, index);
-//         $(".img-container").eq(index).html(html);
-//     })
-//     // console.log(state.spotifyData);
-// }
 
 function watchSubmit() {
     $('.js-search-form').submit(function (e) {
@@ -101,14 +83,12 @@ function htmlTemplate(artist, index) {
     var img = "";
     if (artist.Thumbnail) {
         img = htmlArtistImg(artist, index);
-        console.debug('here');
     }
     var html = '<div class="row main-container">' +
         '<div class="col-8">' +
         '<div class="artist-container">' +
         '<h3>' + artist.Name + '</h3>' +
         '<p>' + artist.wTeaser + '</p>' +
-        // '<button class="js-play-artist play-artist">play album</button>' +
         '</div>' +
         '</div>' +
         '<div class="col-4">' + img +
@@ -119,8 +99,6 @@ function htmlTemplate(artist, index) {
 }
 
 function htmlArtistImg(state, index) {
-    //TODO: Use Thumbnail and ArtistId
-    console.debug(state);
     var html = '<div class="img-container">' +
         '<img class="artist-img" src="' +
         state.Thumbnail[0].url + '" alt="placeholder">' +
