@@ -91,14 +91,14 @@ function renderSimilarArtists() {
 }
 
 function addArtistBtn() {
-    $('.js-add-artist').on('click touchstart', function (e) {
+    $('.js-add-artist').on('click', function (e) {
         $('.js-add-input').append(addInputField);
         $('.js-query').focus();
     })
 }
 
 function watchSubmit() {
-    $('.js-search-form').on('click touchstart', function (e) {
+    $('.js-search-form').submit(function (e) {
         e.preventDefault();
         //clear state of old data
         state.similarArtists = [];
