@@ -29,10 +29,9 @@
                 </h1>
                 <form action="#" class="js-search-form search-form">
                     <label for="query"></label>
-                    <div class="js-add-input">
+                    <div class="js-add-input form-div">
                         <input class="search-artist-text js-query" name="artists[]" type="text" placeholder="Enter an Artist" autofocus>
                     </div>
-                    <br>
                     <button type="button" class="find-artist-btn js-add-artist add-artist-btn">Add another artist</button>
                     <p>
                         Due to Taste Dives API policy all users will need to supply their own API Key. If you do not want to aquire your own API
@@ -42,9 +41,12 @@
                     <a href="https://tastedive.com/account/signin?next=%2Faccount%2Fapi_access" target="_blank">
                         <p>Get an API key here</p>
                     </a>
-                    <input class="search-artist-text js-api-key" type="text" placeholder="Api key here">
-                    <br>
-                    <button class="find-artist-btn" type="submit">Search</button>
+                    <div class="form-div">
+                        <input class="search-artist-text js-api-key" type="text" placeholder="Api key here">
+                    </div>
+                    <div>
+                        <button class="find-artist-btn" type="submit">Search</button>
+                    </div>
                 </form>
             </div>
         </div>
