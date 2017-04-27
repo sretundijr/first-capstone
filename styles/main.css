@@ -66,7 +66,7 @@ body{
 }
 
 .find-artist-btn{
-    margin-top: 20px;
+    /*margin-top: 20px;*/
     max-width: 150px;
     width: 100%;
     border: 1px black solid;
