@@ -91,7 +91,7 @@ function renderSimilarArtists() {
 }
 
 function addArtistBtn() {
-    $('.js-add-artist').on('click', function (e) {
+    $('.js-add-artist').on('click touchstart', function (e) {
         $('.js-add-input').append(addInputField);
         $('.js-query').focus();
     })
@@ -105,10 +105,10 @@ function watchSubmit() {
         state.query = "";
         state.apiKey = "";
         // var query = $(this).find('.js-query').val();
-        // var query = $('input[name^=artists').map(function (item, index) {
-        //     // console.debug($(this).val() + " item");
-        //     return $(this).val();
-        // })
+        var query = $('input[name^=artists').map(function (item, index) {
+            // console.debug($(this).val() + " item");
+            return $(this).val();
+        })
         var apiKey = $(this).find('.js-api-key').val();
         // console.log(apiKey);
         // query.pop();
