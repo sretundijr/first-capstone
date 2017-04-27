@@ -64,9 +64,9 @@ function tasteDiveResults(data) {
         data.Similar.Results.forEach(function (item, index) {
             state.similarArtists.push(item);
         })
+        renderSimilarArtists();
+        sendResultsToSpotify(state.similarArtists)
     }
-    renderSimilarArtists();
-    sendResultsToSpotify(state.similarArtists)
 }
 
 function sendResultsToSpotify(data) {
