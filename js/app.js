@@ -16,10 +16,10 @@ var state = {
 //to make one so the user doesn't have to but then I realized that this would not
 //work if the artist name is seperated by a space, 
 //should i even bother with this
-// function buildQueryStringForTasteDiveCall(query) {
-//     var arr = query.split(" ");
-//     return arr.join();
-// }
+function buildQueryStringForTasteDiveCall(query) {
+    // var arr = query.split(" ");
+    return query.join();
+}
 
 function getDataFromTasteDive(searchTerm, apiKey) {
     console.debug(buildQueryStringForTasteDiveCall(searchTerm));
@@ -88,6 +88,12 @@ function renderSimilarArtists() {
     }
 }
 
+function addArtistBtn() {
+    $('.js-add-artist').on('click', function (e) {
+        $('.js-add-input').append(addInputField);
+    })
+}
+
 function watchSubmit() {
     $('.js-search-form').submit(function (e) {
         e.preventDefault();
@@ -95,11 +101,16 @@ function watchSubmit() {
         state.similarArtists = [];
         state.query = "";
         state.apiKey = "";
-        var query = $(this).find('.js-query').val();
+        // var query = $(this).find('.js-query').val();
+        var query = $('input[name^=artists').map(function (item, index) {
+            console.debug($(this).val() + " item");
+            return $(this).val();
+        })
         var apiKey = $(this).find('.js-api-key').val();
-        console.log(apiKey);
-        console.debug(query);
-        state.query = query;
+        // console.log(apiKey);
+        // query.pop();
+        // console.debug(query.get());
+        state.query = query.get();
         state.ApiKey = apiKey;
         renderSimilarArtists();
     });
@@ -137,4 +148,11 @@ function htmlArtistImg(state, index) {
     return html;
 }
 
-$(function () { watchSubmit(); });
+function addInputField() {
+    return '<input class="search-artist-text js-query" name="artists[]" type="text" placeholder="Enter an Artist" autofocus>'
+}
+
+$(function () {
+    watchSubmit();
+    addArtistBtn();
+});

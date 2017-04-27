@@ -29,7 +29,12 @@
                 </h1>
                 <form action="#" class="js-search-form search-form">
                     <label for="query"></label>
-                    <input class="search-artist-text js-query" type="text" placeholder="Enter artists as a comma seperated list" autofocus>
+                    <input class="search-artist-text js-query" name="artists[]" type="text" placeholder="Enter an Artist" autofocus>
+                    <div class="js-add-input">
+
+                    </div>
+                    <br>
+                    <button type="button" class="find-artist-btn js-add-artist">Add another artist</button>
                     <p>
                         Due to Taste Dives API policy all users will need to supply their own API Key. If you do not want to aquire your own API
                         key, simply press the search button leaving the search field and API key blank and we will populate
