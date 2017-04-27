@@ -16,15 +16,15 @@ var state = {
 //to make one so the user doesn't have to but then I realized that this would not
 //work if the artist name is seperated by a space, 
 //should i even bother with this
-function buildQueryStringForTasteDiveCall(query) {
-    var arr = query.split(" ");
-    return arr.join();
-}
+// function buildQueryStringForTasteDiveCall(query) {
+//     var arr = query.split(" ");
+//     return arr.join();
+// }
 
 function getDataFromTasteDive(searchTerm, apiKey) {
     console.debug(buildQueryStringForTasteDiveCall(searchTerm));
     var query = {
-        q: buildQueryStringForTasteDiveCall(searchTerm),
+        q: searchTerm,
         type: "music",
         info: 1,
         limit: 10,
