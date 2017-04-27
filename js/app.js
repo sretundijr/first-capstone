@@ -24,7 +24,7 @@ function buildQueryStringForTasteDiveCall(query) {
 function getDataFromTasteDive(searchTerm, apiKey) {
     console.debug(buildQueryStringForTasteDiveCall(searchTerm));
     var query = {
-        q: searchTerm,
+        q: buildQueryStringForTasteDiveCall(searchTerm),
         type: "music",
         info: 1,
         limit: 10,

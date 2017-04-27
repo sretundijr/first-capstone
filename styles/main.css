@@ -92,3 +92,7 @@ body{
 .search-artist-text{
     margin-top: 10px;
 }
+
+.add-artist-btn{
+    margin-top: -10px;
+}
