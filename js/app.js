@@ -91,6 +91,7 @@ function renderSimilarArtists() {
 function addArtistBtn() {
     $('.js-add-artist').on('click', function (e) {
         $('.js-add-input').append(addInputField);
+        $('.js-query').focus();
     })
 }
 
