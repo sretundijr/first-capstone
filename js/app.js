@@ -157,5 +157,5 @@ function addInputField() {
 
 $(function () {
     watchSubmit();
-    // addArtistBtn();
+    addArtistBtn();
 });
