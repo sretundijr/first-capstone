@@ -12,13 +12,23 @@ var state = {
     }
 };
 
+//taste dives api rquires a comma seperated list, I figured id add this here
+//to make one so the user doesn't have to but then I realized that this would not
+//work if the artist name is seperated by a space, 
+//should i even bother with this
+function buildQueryStringForTasteDiveCall(query) {
+    var arr = query.split(" ");
+    return arr.join();
+}
+
 function getDataFromTasteDive(searchTerm, apiKey) {
+    console.debug(buildQueryStringForTasteDiveCall(searchTerm));
     var query = {
-        q: searchTerm,
+        q: buildQueryStringForTasteDiveCall(searchTerm),
         type: "music",
         info: 1,
         limit: 10,
-        key: apiKey //you see nothing
+        key: apiKey
     }
     if (apiKey === "") {
         return Promise.resolve($.getJSON(TASTE_DIVE_MOCK_URL, query));
@@ -46,9 +56,15 @@ function spotifyResults(data) {
 
 function tasteDiveResults(data) {
     console.debug(data);
-    data.Similar.Results.forEach(function (item, index) {
-        state.similarArtists.push(item);
-    })
+
+    if (data.error) {
+        alert("Excedded Taste Dives API rate limit, sorry try again later" +
+            "or leave the API key blank and recieve results from our mock API");
+    } else {
+        data.Similar.Results.forEach(function (item, index) {
+            state.similarArtists.push(item);
+        })
+    }
     renderSimilarArtists();
     sendResultsToSpotify(state.similarArtists)
 }
@@ -76,6 +92,8 @@ function renderSimilarArtists() {
 function watchSubmit() {
     $('.js-search-form').submit(function (e) {
         e.preventDefault();
+        //clear array of old data
+        state.similarArtists = [];
         var query = $(this).find('.js-query').val();
         var apiKey = $(this).find('.js-api-key').val();
         console.log(apiKey);
