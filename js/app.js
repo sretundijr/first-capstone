@@ -58,7 +58,7 @@ function tasteDiveResults(data) {
     console.debug(data);
 
     if (data.error) {
-        alert("Excedded Taste Dives API rate limit, sorry try again later" +
+        alert("Excedded Taste Dives API rate limit, sorry try again later " +
             "or leave the API key blank and recieve results from our mock API");
     } else {
         data.Similar.Results.forEach(function (item, index) {
@@ -83,7 +83,6 @@ function renderSimilarArtists() {
             return htmlTemplate(item, index)
         });
         $(".js-results").html(artists.join(""));
-
     } else {
         getDataFromTasteDive(state.query, state.ApiKey).then(tasteDiveResults);
     }
@@ -92,8 +91,10 @@ function renderSimilarArtists() {
 function watchSubmit() {
     $('.js-search-form').submit(function (e) {
         e.preventDefault();
-        //clear array of old data
+        //clear state of old data
         state.similarArtists = [];
+        state.query = "";
+        state.apiKey = "";
         var query = $(this).find('.js-query').val();
         var apiKey = $(this).find('.js-api-key').val();
         console.log(apiKey);
