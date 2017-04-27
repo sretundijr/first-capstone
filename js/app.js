@@ -1,27 +1,30 @@
 // alert("hello");
 
-// var TASTE_DIVE_BASE_URL = 'https://tastedive.com/api/similar?callback=?';
-var TASTE_DIVE_BASE_URL = 'https://private-8723d-tastedive.apiary-mock.com/api/similar';
+var TASTE_DIVE_BASE_URL = 'https://tastedive.com/api/similar?callback=?';
+var TASTE_DIVE_MOCK_URL = 'https://private-8723d-tastedive.apiary-mock.com/api/similar';
 
 var SPOTIFY_BASE_URL = "https://api.spotify.com/v1/search";
 
 var state = {
     similarArtists: [],
-    // spotifyData: [],
     hasArtists: function () {
         return this.similarArtists.length > 0;
     }
 };
 
-function getDataFromTasteDive(searchTerm) {
+function getDataFromTasteDive(searchTerm, apiKey) {
     var query = {
         q: searchTerm,
         type: "music",
         info: 1,
         limit: 10,
-        key: "268196-Similara-AYQO3GFI" //you see nothing
+        key: apiKey //you see nothing
     }
-    return Promise.resolve($.getJSON(TASTE_DIVE_BASE_URL, query));
+    if (apiKey === "") {
+        return Promise.resolve($.getJSON(TASTE_DIVE_MOCK_URL, query));
+    } else {
+        return Promise.resolve($.getJSON(TASTE_DIVE_BASE_URL, query));
+    }
 }
 
 function getDataFromSpotify(band) {
@@ -66,7 +69,7 @@ function renderSimilarArtists() {
         $(".js-results").html(artists.join(""));
 
     } else {
-        getDataFromTasteDive(state.query).then(tasteDiveResults);
+        getDataFromTasteDive(state.query, state.ApiKey).then(tasteDiveResults);
     }
 }
 
@@ -74,7 +77,11 @@ function watchSubmit() {
     $('.js-search-form').submit(function (e) {
         e.preventDefault();
         var query = $(this).find('.js-query').val();
+        var apiKey = $(this).find('.js-api-key').val();
+        console.log(apiKey);
+        console.debug(query);
         state.query = query;
+        state.ApiKey = apiKey;
         renderSimilarArtists();
     });
 }
