@@ -33,7 +33,7 @@ function getDataFromTasteDive(searchTerm, apiKey) {
         key: apiKey
     }
     if (apiKey === "") {
-        return Promise.resolve($.getJSON(TASTE_DIVE_MOCK_URL, query));
+        return Promise.resolve($.getJSON(TASTE_DIVE_MOCK_URL));
     } else {
         return Promise.resolve($.getJSON(TASTE_DIVE_BASE_URL, query));
     }
