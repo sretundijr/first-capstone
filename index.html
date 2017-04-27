@@ -12,6 +12,7 @@
     <title>Find new music</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
     <link rel="stylesheet" href="styles/grid.css">
     <link rel="stylesheet" href="styles/main.css">
 </head>
@@ -21,26 +22,21 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
     <header>
-        <h1 class="col-1">Best app ever</h1>
-    </header>
-
-    <section>
-        <div class="row">
+        <div class="row search-form">
             <div class="col-12">
-                <h1>Enter movies, music, shows, authors, books, and games</h1>
-                <form action="#" class="js-search-form">
+                <h1 class="welcome-header">Enter movies, music, shows, authors, books, and games
+                    <br> and recieve a list of bands that may be of interest to you
+                </h1>
+                <form action="#" class="js-search-form search-form">
                     <label for="query"></label>
-                    <input type="text" class="js-query">
-                    <button type="submit">Search</button>
+                    <input class="search-artist-text" type="text" class="js-query" autofocus>
+                    <br>
+                    <button class="find-artist-btn" type="submit">Search</button>
                 </form>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <h3>and recieve a list of bands that may be of interest to you</h3>
-            </div>
-        </div>
-    </section>
+    </header>
+
     <main class="js-results">
         <div class="row main-container">
             <div class="col-8">
@@ -63,10 +59,6 @@
             </div>
         </div>
     </main>
-
-    <!--<iframe src="https://open.spotify.com/embed?uri=spotify:artist:1Yox196W7bzVNZI7RBaPnf" width="300" height="80" frameborder="0"
-        allowtransparency="true">
-    </iframe>-->
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous">

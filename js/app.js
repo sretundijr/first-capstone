@@ -102,7 +102,7 @@ function htmlArtistImg(state, index) {
     var html = '<div class="img-container">' +
         '<img class="artist-img" src="' +
         state.Thumbnail[0].url + '" alt="placeholder">' +
-        '<iframe src="https://open.spotify.com/embed?uri=spotify:' +
+        '<iframe class="spotify-iframe" src="https://open.spotify.com/embed?uri=spotify:' +
         'artist:' + state.ArtistId + '"' +
         'width="300" height="80" frameborder="0"' +
         'allowtransparency="true">' +

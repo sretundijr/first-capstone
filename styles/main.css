@@ -1,13 +1,50 @@
-/*h1{
+body{
+    background-color: rgb(196, 194, 194);
+    font-family: 'Karla', sans-serif;  
+    z-index: -1000;
+    background-position: center center;
+    background-repeat: repeat-y;
+}
+
+.welcome-header{
+    font-size: 40px;
+    text-shadow: #999694 -4px 1px 6px;
+}
+
+.search-form{
     text-align: center;
-}*/
-/*.thumbnail {
-    height: 100px;
-    width: 100px;
-}*/
-.main-container{
+}
+
+.search-artist-text{
+    text-align: center;
+    width: 100%;
+    max-width: 615px;
+    height: 30px;
     border: 1px black solid;
-    /*padding: 10px;*/
+    border-radius: 25px 25px 25px 25px;
+    outline-color:  #999694;
+    outline: none;
+    font-size: 20px;
+}
+
+.search-artist-text:focus{
+    box-shadow: 0 0 0 2pt black;
+}
+
+.search-artist-text:hover{
+    box-shadow: 0 0 0 2pt black;
+}
+
+.main-container{
+    border-radius: 25px 25px 25px 25px;
+    border: 1px black solid;
+    background-color:rgb(249, 249, 250);
+    font-size: 1.4em;
+    box-shadow: 8px 7px 5px 0px #656768;       
+}
+
+.main-container:hover{
+    box-shadow: 0 0 0 2pt black;
 }
 
 .artist-container{
@@ -15,7 +52,7 @@
 }
 
 .img-container{
-    padding: 10px 0 10px 10px;
+    padding: 20px 0 10px 10px;
 }
 
 .artist-img{
@@ -26,5 +63,28 @@
 .play-artist{
     width: 100px;
     height: 35px;
-    /*background-color: lightblue;*/
+}
+
+.find-artist-btn{
+    margin-top: 20px;
+    max-width: 150px;
+    width: 100%;
+    border: 1px black solid;
+    font-size: 20px;
+    background-color: white;
+    outline: none;
+    font-family: 'Karla', sans-serif;
+    border-radius: 50px 50px 50px 50px;
+}
+
+.find-artist-btn:focus{
+    box-shadow: 0 0 0 2pt black;
+}
+
+.find-artist-btn:hover{
+    box-shadow: 0 0 0 2pt black;
+}
+
+.spotify-iframe{
+    margin-top: 75px;
 }
