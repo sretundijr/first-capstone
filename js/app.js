@@ -98,7 +98,7 @@ function addArtistBtn() {
 }
 
 function watchSubmit() {
-    $('.js-search-form').submit(function (e) {
+    $('.js-search-form').on('click touchstart', function (e) {
         e.preventDefault();
         //clear state of old data
         state.similarArtists = [];
@@ -112,7 +112,7 @@ function watchSubmit() {
         var apiKey = $(this).find('.js-api-key').val();
         // console.log(apiKey);
         // query.pop();
-        // console.debug(query.get());
+        console.debug(query.get());
         state.query = query.get();
         state.ApiKey = apiKey;
         renderSimilarArtists();
