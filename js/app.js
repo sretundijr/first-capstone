@@ -105,7 +105,7 @@ function watchSubmit() {
         state.query = "";
         state.apiKey = "";
         // var query = $(this).find('.js-query').val();
-        var query = $('input[name^=artists').map(function (item, index) {
+        var query = $('input[name^=artists]').map(function (item, index) {
             // console.debug($(this).val() + " item");
             return $(this).val();
         })
