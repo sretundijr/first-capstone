@@ -12,17 +12,19 @@ var state = {
     }
 };
 
-//taste dives api rquires a comma seperated list, I figured id add this here
-//to make one so the user doesn't have to but then I realized that this would not
-//work if the artist name is seperated by a space, 
-//should i even bother with this
 function buildQueryStringForTasteDiveCall(query) {
     // var arr = query.split(" ");
+    // query = query.map(function (element, index) {
+    //     if (element === '') {
+    //         query.splice(index, 0);
+    //     }
+    // })
+    console.debug(query);
     return query.join();
 }
 
 function getDataFromTasteDive(searchTerm, apiKey) {
-    console.debug(buildQueryStringForTasteDiveCall(searchTerm));
+    // console.debug(buildQueryStringForTasteDiveCall(searchTerm));
     var query = {
         q: buildQueryStringForTasteDiveCall(searchTerm),
         type: "music",
@@ -103,10 +105,10 @@ function watchSubmit() {
         state.query = "";
         state.apiKey = "";
         // var query = $(this).find('.js-query').val();
-        var query = $('input[name^=artists').map(function (item, index) {
-            console.debug($(this).val() + " item");
-            return $(this).val();
-        })
+        // var query = $('input[name^=artists').map(function (item, index) {
+        //     // console.debug($(this).val() + " item");
+        //     return $(this).val();
+        // })
         var apiKey = $(this).find('.js-api-key').val();
         // console.log(apiKey);
         // query.pop();
