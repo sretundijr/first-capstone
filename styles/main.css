@@ -67,7 +67,7 @@ body{
 
 .find-artist-btn{
     /*margin-top: 20px;*/
-    max-width: 150px;
+    max-width: 175px;
     width: 100%;
     border: 1px black solid;
     font-size: 20px;
@@ -96,3 +96,7 @@ body{
 .form-div{
     margin-bottom: 15px;
 }
+
+/*.remove-btn{
+    visibility: hidden;
+}*/

@@ -90,10 +90,21 @@ function renderSimilarArtists() {
     }
 }
 
+function renderInputField() {
+    $('.js-add-input').append(addInputField);
+    $('.js-query').focus();
+}
+
 function addArtistBtn() {
     $('.js-add-artist').on('click', function (e) {
-        $('.js-add-input').append(addInputField);
-        $('.js-query').focus();
+        renderInputField();
+    })
+}
+
+function removeTextField() {
+    $('.js-remove-text-btn').on('click', function (e) {
+        $('.js-query').remove();
+        renderInputField();
     })
 }
 
@@ -158,4 +169,5 @@ function addInputField() {
 $(function () {
     watchSubmit();
     addArtistBtn();
+    removeTextField();
 });
