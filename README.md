@@ -21,6 +21,12 @@ not what the user expected, it allowed them to view the functionality of the app
 A view of mock api results returned
 ![Mock api results](https://github.com/sretundijr/first-capstone/blob/master/wireframes/Screen%20Shot%202017-04-30%20at%203.49.07%20PM.png)
 
+This app returns 10 suggested artist, a spotify play button widget, a description/summary of the artists career and an image.
+The spotify play button widget allows a user to either hear a sample (for non-spotify users) or a full album (if the user
+is signed into spotify).
+
+Thank you for visiting my app, feedback is always welcome.
+
 Technologies used
 HTML, CSS, JavaScript, jQuery, Taste Dives API, Spotify API, and Apiary (providing mock api results).
 
