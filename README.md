@@ -15,6 +15,9 @@ task.
 ![App error message](https://github.com/sretundijr/first-capstone/blob/master/wireframes/Screen%20Shot%202017-04-30%20at%203.41.49%20PM.png)
 
 This error message was added to notify the users of the API rate limit exceeded.
+I added a mock API to return results in the event the API rate limit was exceeded, although the returned results were
+not what the user expected, it allowed them to view the functionality of the app.
+
 
 
 
