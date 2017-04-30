@@ -57,8 +57,10 @@ body{
 }
 
 .artist-img{
-    height: 100%;
-    width: 100%;
+    height: 250px;
+    width: 250px;
+
+    margin-right: 150px;
 }
 
 .play-artist{
@@ -102,7 +104,7 @@ body{
     visibility: hidden;
 }*/
 
-@media only screen and (min-width: 640px){
+@media only screen and (min-width: 950px){
 
     .welcome-header{
         font-size: 2.5em;
@@ -118,5 +120,10 @@ body{
 
     .find-artist-btn{
          font-size: 1.3em;
+    }
+
+    .artist-img{
+        height: 100%;
+        width: 100%;
     }
 }
