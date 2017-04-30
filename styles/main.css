@@ -71,7 +71,7 @@ body{
     max-width: 175px;
     width: 100%;
     border: 1px black solid;
-    font-size: .9em;
+    font-size: .8em;
     background-color: white;
     outline: none;
     font-family: 'Karla', sans-serif;
@@ -113,10 +113,10 @@ body{
     }
 
     .main-container{
-        font-size: 1.5em;
+        font-size: 1.4em;
     }
 
     .find-artist-btn{
-         font-size: 1.4em;
+         font-size: 1.3em;
     }
 }
