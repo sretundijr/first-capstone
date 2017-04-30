@@ -1,4 +1,4 @@
-// alert("hello");
+
 
 var TASTE_DIVE_BASE_URL = 'https://tastedive.com/api/similar?callback=?';
 var TASTE_DIVE_MOCK_URL = 'https://private-8723d-tastedive.apiary-mock.com/api/similar';
@@ -13,13 +13,6 @@ var state = {
 };
 
 function buildQueryStringForTasteDiveCall(query) {
-    // var arr = query.split(" ");
-    // query = query.map(function (element, index) {
-    //     if (element === '') {
-    //         query.splice(index, 0);
-    //     }
-    // })
-    console.debug(query);
     return query.join();
 }
 
@@ -56,8 +49,6 @@ function spotifyResults(data) {
 }
 
 function tasteDiveResults(data) {
-    console.debug(data);
-
     if (data.error) {
         alert("Exceeded Taste Dives API rate limit, sorry try again later " +
             "or leave the API key blank and recieve results from our mock API");
@@ -118,6 +109,7 @@ function watchSubmit() {
             return $(this).val();
         })
         var apiKey = $(this).find('.js-api-key').val();
+        //the get method here removes the jquery element object that gets added to the last index
         state.query = query.get();
         state.ApiKey = apiKey;
         renderSimilarArtists();

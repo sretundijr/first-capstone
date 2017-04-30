@@ -59,8 +59,6 @@ body{
 .artist-img{
     height: 250px;
     width: 250px;
-
-    /*margin-right: 150px;*/
 }
 
 .play-artist{
@@ -73,7 +71,6 @@ body{
 }
 
 .find-artist-btn{
-    /*margin-top: 20px;*/
     max-width: 175px;
     width: 100%;
     border: 1px black solid;
@@ -103,10 +100,6 @@ body{
 .form-div{
     margin-bottom: 15px;
 }
-
-/*.remove-btn{
-    visibility: hidden;
-}*/
 
 @media only screen and (min-width: 950px){
 
