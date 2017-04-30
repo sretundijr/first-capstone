@@ -1,13 +1,14 @@
+
 body{
     background-color: rgb(196, 194, 194);
     font-family: 'Karla', sans-serif;  
     z-index: -1000;
     background-position: center center;
-    background-repeat: repeat-y;
+    background-repeat: repeat-y;  
 }
 
 .welcome-header{
-    font-size: 40px;
+    font-size: 1.2em;
     text-shadow: #999694 -4px 1px 6px;
 }
 
@@ -24,7 +25,7 @@ body{
     border-radius: 25px 25px 25px 25px;
     outline-color:  #999694;
     outline: none;
-    font-size: 20px;
+    font-size: .8em;
 }
 
 .search-artist-text:focus{
@@ -39,7 +40,7 @@ body{
     border-radius: 25px 25px 25px 25px;
     border: 1px black solid;
     background-color:rgb(249, 249, 250);
-    font-size: 1.4em;
+    font-size: .9em;
     box-shadow: 8px 7px 5px 0px #656768;       
 }
 
@@ -70,7 +71,7 @@ body{
     max-width: 175px;
     width: 100%;
     border: 1px black solid;
-    font-size: 20px;
+    font-size: .9em;
     background-color: white;
     outline: none;
     font-family: 'Karla', sans-serif;
@@ -100,3 +101,22 @@ body{
 /*.remove-btn{
     visibility: hidden;
 }*/
+
+@media only screen and (min-width: 640px){
+
+    .welcome-header{
+        font-size: 2.5em;
+    }
+
+    .search-artist-text{
+        font-size: 1.4em;
+    }
+
+    .main-container{
+        font-size: 1.5em;
+    }
+
+    .find-artist-btn{
+         font-size: 1.4em;
+    }
+}

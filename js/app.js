@@ -24,7 +24,6 @@ function buildQueryStringForTasteDiveCall(query) {
 }
 
 function getDataFromTasteDive(searchTerm, apiKey) {
-    // console.debug(buildQueryStringForTasteDiveCall(searchTerm));
     var query = {
         q: buildQueryStringForTasteDiveCall(searchTerm),
         type: "music",
@@ -115,15 +114,10 @@ function watchSubmit() {
         state.similarArtists = [];
         state.query = "";
         state.apiKey = "";
-        // var query = $(this).find('.js-query').val();
         var query = $('input[name^=artists]').map(function (item, index) {
-            // console.debug($(this).val() + " item");
             return $(this).val();
         })
         var apiKey = $(this).find('.js-api-key').val();
-        // console.log(apiKey);
-        // query.pop();
-        console.debug(query.get());
         state.query = query.get();
         state.ApiKey = apiKey;
         renderSimilarArtists();
