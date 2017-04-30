@@ -59,7 +59,7 @@ function tasteDiveResults(data) {
     console.debug(data);
 
     if (data.error) {
-        alert("Excedded Taste Dives API rate limit, sorry try again later " +
+        alert("Exceeded Taste Dives API rate limit, sorry try again later " +
             "or leave the API key blank and recieve results from our mock API");
     } else {
         data.Similar.Results.forEach(function (item, index) {
