@@ -6,7 +6,8 @@ This website allows a user to enter a movie, music, books, authors and games and
 Users a presented with this opening screen which describes how to use the app as well as a song of the day.  This feature
 is currently hard coded and maybe implemented at a later date.
 
-![App intro page](first-capstone/wireframes/Screen Shot 2017-04-30 at 3.10.28 PM.png)
+![App intro page](https://github.com/sretundijr/first-capstone/blob/master/wireframes/Screen%20Shot%202017-04-30%20at%203.10.28%20PM.png)
+
 
 
 
