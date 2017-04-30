@@ -3,8 +3,8 @@ This website allows a user to enter a movie, music, books, authors and games and
 <<<<<<< HEAD
 =======
 
-Users a presented with this opening screen which describes how to use the app as well as a song of the day.  This feature
-is currently hard coded and maybe implemented at a later date.
+Users are presented with this opening screen which describes how to use the app as well as a song of the day.  Song of the
+day feature is currently hard coded and maybe implemented at a later date.
 
 ![App intro page](https://github.com/sretundijr/first-capstone/blob/master/wireframes/Screen%20Shot%202017-04-30%20at%203.10.28%20PM.png)
 
@@ -21,7 +21,8 @@ not what the user expected, it allowed them to view the functionality of the app
 A view of mock api results returned
 ![Mock api results](https://github.com/sretundijr/first-capstone/blob/master/wireframes/Screen%20Shot%202017-04-30%20at%203.49.07%20PM.png)
 
-
+Technologies used
+HTML, CSS, JavaScript, jQuery, Taste Dives API, Spotify API, and Apiary (providing mock api results).
 
 
 
