@@ -3,8 +3,9 @@ body{
     background-color: rgb(196, 194, 194);
     font-family: 'Karla', sans-serif;  
     z-index: -1000;
-    background-position: center center;
-    background-repeat: repeat-y;  
+    /*background-image: url('../images/music-1874621_1280.jpg');*/
+    /*background-position: center center;*/
+    /*background-repeat: repeat-y;  */
 }
 
 .welcome-header{
