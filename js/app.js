@@ -16,7 +16,7 @@ function buildQueryStringForTasteDiveCall(query) {
     return query.join();
 }
 
-function getDataFromTasteDive(searchTerm, apiKey) {
+function getDataFromTasteDive(searchTerm) {
     var query = {
         q: buildQueryStringForTasteDiveCall(searchTerm),
         type: "music",
@@ -24,11 +24,8 @@ function getDataFromTasteDive(searchTerm, apiKey) {
         limit: 10,
         k: '268196-Similara-ACPD5CC5'
     }
-    if (apiKey === "") {
-        return Promise.resolve($.getJSON(TASTE_DIVE_MOCK_URL));
-    } else {
-        return Promise.resolve($.getJSON(TASTE_DIVE_BASE_URL, query));
-    }
+    return Promise.resolve($.getJSON(TASTE_DIVE_BASE_URL, query));
+
 }
 
 function getDataFromSpotify(band) {
@@ -104,15 +101,12 @@ function watchSubmit() {
         //clear state of old data
         state.similarArtists = [];
         state.query = "";
-        state.apiKey = "";
         var query = $('input[name^=artists]').map(function (item, index) {
             return $(this).val();
         })
-        var apiKey = $(this).find('.js-api-key').val();
         //the get method here removes the jquery element object that gets added to the last index
         state.query = query.get();
-        state.ApiKey = apiKey;
-        getDataFromTasteDive(state.query, state.ApiKey).then(tasteDiveResults);
+        getDataFromTasteDive(state.query).then(tasteDiveResults);
         renderSimilarArtists();
     });
 }
