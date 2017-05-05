@@ -22,7 +22,7 @@ body{
     max-width: 615px;
     height: 30px;
     border: 1px black solid;
-    border-radius: 25px 25px 25px 25px;
+    border-radius: 5px 5px 5px 5px;
     outline-color:  #999694;
     outline: none;
     font-size: .8em;
@@ -37,7 +37,7 @@ body{
 }
 
 .main-container{
-    border-radius: 25px 25px 25px 25px;
+    border-radius: 5px 5px 5px 5px;
     border: 1px black solid;
     background-color:rgb(249, 249, 250);
     font-size: .9em;
@@ -78,7 +78,7 @@ body{
     background-color: white;
     outline: none;
     font-family: 'Karla', sans-serif;
-    border-radius: 50px 50px 50px 50px;
+    border-radius: 5px 5px 5px 5px;
 }
 
 .find-artist-btn:focus{
