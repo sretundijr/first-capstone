@@ -22,7 +22,7 @@ function getDataFromTasteDive(searchTerm, apiKey) {
         type: "music",
         info: 1,
         limit: 10,
-        key: apiKey
+        k: '268196-Similara-ACPD5CC5'
     }
     if (apiKey === "") {
         return Promise.resolve($.getJSON(TASTE_DIVE_MOCK_URL));
