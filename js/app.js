@@ -70,14 +70,14 @@ function sendResultsToSpotify(data) {
 
 function renderSimilarArtists() {
 
-    if (state.hasArtists()) {
-        var artists = state.similarArtists.map(function (item, index) {
-            return htmlTemplate(item, index)
-        });
-        $(".js-results").html(artists.join(""));
-    } else {
-        getDataFromTasteDive(state.query, state.ApiKey).then(tasteDiveResults);
-    }
+    // if (state.hasArtists()) {
+    var artists = state.similarArtists.map(function (item, index) {
+        return htmlTemplate(item, index)
+    });
+    $(".js-results").html(artists.join(""));
+    // } else {
+
+    // }
 }
 
 function renderInputField() {
@@ -112,6 +112,7 @@ function watchSubmit() {
         //the get method here removes the jquery element object that gets added to the last index
         state.query = query.get();
         state.ApiKey = apiKey;
+        getDataFromTasteDive(state.query, state.ApiKey).then(tasteDiveResults);
         renderSimilarArtists();
     });
 }
