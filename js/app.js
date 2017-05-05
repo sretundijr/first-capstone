@@ -46,16 +46,11 @@ function spotifyResults(data) {
 }
 
 function tasteDiveResults(data) {
-    if (data.error) {
-        alert("Exceeded Taste Dives API rate limit, sorry try again later " +
-            "or leave the API key blank and recieve results from our mock API");
-    } else {
-        data.Similar.Results.forEach(function (item, index) {
-            state.similarArtists.push(item);
-        })
-        renderSimilarArtists();
-        sendResultsToSpotify(state.similarArtists)
-    }
+    data.Similar.Results.forEach(function (item, index) {
+        state.similarArtists.push(item);
+    })
+    renderSimilarArtists();
+    sendResultsToSpotify(state.similarArtists)
 }
 
 function sendResultsToSpotify(data) {
