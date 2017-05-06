@@ -94,7 +94,6 @@ function resetInputField() {
 
 function submitToTastDive() {
     $('.js-search-artist-btn').on('click', function (e) {
-        e.preventDefault();
         //clear state of old data
         state.similarArtists = [];
         //check if the current state contains input and push to state
