@@ -79,6 +79,14 @@ function renderNoResultsFromTasteDive() {
     resetInputField();
 }
 
+function renderQueryList(state) {
+    // $('.js-show-state').html(showCurrentStateTemplate());
+    var artist = state.query.map(function (item) {
+        return showCurrentStateTemplate(item);
+    });
+    $('.js-show-state').html(artist.join(""));
+}
+
 function resetInputField() {
     $('.js-search-form')[0].reset();
     $('.js-query').focus();
@@ -88,6 +96,7 @@ function addArtistBtn() {
     $('.js-search-form').submit(function (e) {
         state.query.push($('.js-query').val());
         resetInputField();
+        renderQueryList(state);
     })
 }
 
@@ -102,6 +111,19 @@ function watchSubmit() {
         }
         getDataFromTasteDive(state.query).then(tasteDiveResults);
     });
+}
+
+function stateListBtn() {
+    $('.js-show-state').on('click', function (e) {
+        console.debug($(this).text());
+    })
+}
+
+function showCurrentStateTemplate(artist) {
+    var html = `<button type="button" class="js-remove">` +
+        `${artist}  X` +
+        `</button>`;
+    return html;
 }
 
 function htmlTemplate(artist, index) {
@@ -143,4 +165,5 @@ function htmlArtistImg(state, index) {
 $(function () {
     watchSubmit();
     addArtistBtn();
+    stateListBtn();
 });
