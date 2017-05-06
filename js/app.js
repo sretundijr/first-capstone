@@ -89,19 +89,11 @@ function addArtistBtn() {
     })
 }
 
-function removeTextField() {
-    $('.js-remove-text-btn').on('click', function (e) {
-        $('.js-query').remove();
-    })
-}
-
 function watchSubmit() {
     $('.js-search-artist-btn').on('click', function (e) {
         e.preventDefault();
         //clear state of old data
         state.similarArtists = [];
-        //the get method here removes the jquery element object that gets added to the last index
-        state.query.push($('.js-query').val());
         getDataFromTasteDive(state.query).then(tasteDiveResults);
         renderSimilarArtists();
     });
