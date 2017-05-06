@@ -87,7 +87,6 @@ function resetInputField() {
 function addArtistBtn() {
     $('.js-search-form').submit(function (e) {
         state.query.push($('.js-query').val());
-        console.debug(state.query);
         resetInputField();
     })
 }
