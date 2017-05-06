@@ -128,7 +128,7 @@ function stateListBtn() {
 function showCurrentStateTemplate(artist) {
     var html =
         `<div class="state-display">` +
-        `<a href="#" class="js-remove show-state" id="${artist}">${artist}<span> X</span></a>` +
+        `<a href="#" class="js-remove show-state" id="${artist}">${artist} X</a>` +
         `</div>`;
     return html;
 }
