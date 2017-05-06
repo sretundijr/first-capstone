@@ -73,7 +73,10 @@ function renderSimilarArtists() {
 }
 
 function renderNoResultsFromTasteDive() {
-    $('.js-results').append('<p>No Results for the search please try again</p>');
+    // $('.js-results').append('<p>No Results for the search please try again</p>');
+    alert(`No results for: ${state.query}`);
+    //clear query state for no results
+    state.query = [];
 }
 
 function resetInputField() {
@@ -95,7 +98,7 @@ function watchSubmit() {
         //clear state of old data
         state.similarArtists = [];
         getDataFromTasteDive(state.query).then(tasteDiveResults);
-        renderSimilarArtists();
+        // renderSimilarArtists();
     });
 }
 
@@ -135,12 +138,7 @@ function htmlArtistImg(state, index) {
     return html;
 }
 
-function addInputField() {
-    return '<input class="search-artist-text js-query" name="artists[]" type="text" placeholder="Enter an Artist" autofocus>'
-}
-
 $(function () {
     watchSubmit();
     addArtistBtn();
-    removeTextField();
 });
