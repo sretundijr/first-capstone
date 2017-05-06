@@ -77,6 +77,7 @@ function renderNoResultsFromTasteDive() {
     alert(`No results for: ${state.query}`);
     //clear query state for no results
     state.query = [];
+    resetInputField();
 }
 
 function resetInputField() {
@@ -97,8 +98,10 @@ function watchSubmit() {
         e.preventDefault();
         //clear state of old data
         state.similarArtists = [];
+        if (state.query[state.query.length - 1] !== $('.js-query').val()) {
+            state.query.push($('.js-query').val());
+        }
         getDataFromTasteDive(state.query).then(tasteDiveResults);
-        // renderSimilarArtists();
     });
 }
 
