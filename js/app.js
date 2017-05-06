@@ -46,11 +46,15 @@ function spotifyResults(data) {
 }
 
 function tasteDiveResults(data) {
-    data.Similar.Results.forEach(function (item, index) {
-        state.similarArtists.push(item);
-    })
-    renderSimilarArtists();
-    sendResultsToSpotify(state.similarArtists)
+    if (data.Similar.Results.length === 0) {
+        renderNoResultsFromTasteDive();
+    } else {
+        data.Similar.Results.forEach(function (item, index) {
+            state.similarArtists.push(item);
+        })
+        renderSimilarArtists();
+        sendResultsToSpotify(state.similarArtists)
+    }
 }
 
 function sendResultsToSpotify(data) {
@@ -61,15 +65,14 @@ function sendResultsToSpotify(data) {
 }
 
 function renderSimilarArtists() {
-
-    // if (state.hasArtists()) {
     var artists = state.similarArtists.map(function (item, index) {
         return htmlTemplate(item, index)
     });
     $(".js-results").html(artists.join(""));
-    // } else {
+}
 
-    // }
+function renderNoResultsFromTasteDive() {
+    $('.js-results').append('<p>No Results for the search please try again</p>');
 }
 
 function renderInputField() {
