@@ -73,7 +73,6 @@ function renderSimilarArtists() {
 }
 
 function renderNoResultsFromTasteDive() {
-    // $('.js-results').append('<p>No Results for the search please try again</p>');
     alert(`No results for: ${state.query}`);
     //clear query state for no results
     state.query = [];
