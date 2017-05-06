@@ -82,7 +82,7 @@ function resetInputField() {
 }
 
 function addArtistBtn() {
-    $('.js-add-artist').on('click', function (e) {
+    $('.js-search-form').submit(function (e) {
         state.query.push($('.js-query').val());
         console.debug(state.query);
         resetInputField();
@@ -96,7 +96,7 @@ function removeTextField() {
 }
 
 function watchSubmit() {
-    $('.js-search-form').submit(function (e) {
+    $('.js-search-artist-btn').on('click', function (e) {
         e.preventDefault();
         //clear state of old data
         state.similarArtists = [];
