@@ -84,7 +84,6 @@ function resetInputField() {
 
 function addArtistBtn() {
     $('.js-add-artist').on('click', function (e) {
-        // console.debug($('.js-query').val());
         state.query.push($('.js-query').val());
         console.debug(state.query);
         resetInputField();
@@ -94,7 +93,6 @@ function addArtistBtn() {
 function removeTextField() {
     $('.js-remove-text-btn').on('click', function (e) {
         $('.js-query').remove();
-        // renderInputField();
     })
 }
 
