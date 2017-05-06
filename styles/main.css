@@ -77,6 +77,7 @@ body{
     outline: none;
     font-family: 'Karla', sans-serif;
     border-radius: 5px 5px 5px 5px;
+    margin-bottom: 20px;
 }
 
 .find-artist-btn:focus{
@@ -127,7 +128,6 @@ body{
 
     .find-artist-btn{
          font-size: 1.3em;
-         margin-bottom: 20px;
     }
 
     .artist-img{
