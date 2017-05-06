@@ -99,7 +99,7 @@ function submitToTastDive() {
         //check if the current state contains input and push to state
         var currentInput = $('.js-query').val();
         if (state.query[state.query.length - 1] !== currentInput && currentInput !== "") {
-            state.query.push($(currentInput));
+            state.query.push(currentInput);
         }
         getDataFromTasteDive(state.query).then(tasteDiveResults);
     });
@@ -109,7 +109,6 @@ function watchSubmit() {
     $('.js-search-form').submit(function (e) {
         e.preventDefault();
         state.query.push($('.js-query').val());
-        console.debug(state);
         resetInputField();
         renderQueryList(state);
     })
