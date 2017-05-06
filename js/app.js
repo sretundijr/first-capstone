@@ -96,6 +96,7 @@ function watchSubmit() {
         e.preventDefault();
         //clear state of old data
         state.similarArtists = [];
+        //check if the current state contains input and push to state
         if (state.query[state.query.length - 1] !== $('.js-query').val()) {
             state.query.push($('.js-query').val());
         }
