@@ -92,15 +92,7 @@ function resetInputField() {
     $('.js-query').focus();
 }
 
-function addArtistBtn() {
-    $('.js-search-form').submit(function (e) {
-        state.query.push($('.js-query').val());
-        resetInputField();
-        renderQueryList(state);
-    })
-}
-
-function watchSubmit() {
+function submitToTastDive() {
     $('.js-search-artist-btn').on('click', function (e) {
         e.preventDefault();
         //clear state of old data
@@ -111,6 +103,15 @@ function watchSubmit() {
         }
         getDataFromTasteDive(state.query).then(tasteDiveResults);
     });
+}
+
+function watchSubmit() {
+    $('.js-search-form').submit(function (e) {
+        state.query.push($('.js-query').val());
+        resetInputField();
+        renderQueryList(state);
+    })
+
 }
 
 function stateListBtn() {
@@ -171,6 +172,6 @@ function htmlArtistImg(state, index) {
 
 $(function () {
     watchSubmit();
-    addArtistBtn();
+    submitToTastDive()
     stateListBtn();
 });
