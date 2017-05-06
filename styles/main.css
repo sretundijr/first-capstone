@@ -101,9 +101,7 @@ body{
 }
 
 .show-state{
-    border: 1px solid black;
-    text-decoration: none;
-    color: black;
+    font-family: 'Karla', sans-serif;
     padding: 5px;
 }
 
