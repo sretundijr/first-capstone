@@ -107,7 +107,9 @@ function submitToTastDive() {
 
 function watchSubmit() {
     $('.js-search-form').submit(function (e) {
+        e.preventDefault();
         state.query.push($('.js-query').val());
+        console.debug(state);
         resetInputField();
         renderQueryList(state);
     })
@@ -116,7 +118,6 @@ function watchSubmit() {
 
 function stateListBtn() {
     $('.js-show-state').on('click', function (e) {
-        e.preventDefault();
         state.query.find(function (item, index) {
             if (item === e.target.id) {
                 state.query.splice(index, 1);
@@ -129,7 +130,7 @@ function stateListBtn() {
 function showCurrentStateTemplate(artist) {
     var html =
         `<div class="state-display">` +
-        `<a href="#" class="js-remove show-state" id="${artist}">${artist} X</a>` +
+        `<button type="button" class="js-remove show-state" id="${artist}">${artist}   X</button>` +
         `</div>`;
     return html;
 }
