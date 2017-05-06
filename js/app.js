@@ -77,6 +77,7 @@ function renderNoResultsFromTasteDive() {
     //clear query state for no results
     state.query = [];
     resetInputField();
+    renderQueryList(state);
 }
 
 function renderQueryList(state) {
