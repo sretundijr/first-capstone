@@ -99,6 +99,18 @@ body{
     margin-bottom: 15px;
 }
 
+.show-state{
+    border: 1px solid black;
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+}
+
+.state-display{
+    display: inline-block;
+    margin-right: 10px;
+}
+
 @media only screen and (min-width: 950px){
 
     .welcome-header{

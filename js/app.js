@@ -80,7 +80,6 @@ function renderNoResultsFromTasteDive() {
 }
 
 function renderQueryList(state) {
-    // $('.js-show-state').html(showCurrentStateTemplate());
     var artist = state.query.map(function (item) {
         return showCurrentStateTemplate(item);
     });
@@ -115,14 +114,21 @@ function watchSubmit() {
 
 function stateListBtn() {
     $('.js-show-state').on('click', function (e) {
-        console.debug($(this).text());
+        e.preventDefault();
+        state.query.find(function (item, index) {
+            if (item === e.target.id) {
+                state.query.splice(index, 1);
+            }
+        })
+        renderQueryList(state);
     })
 }
 
 function showCurrentStateTemplate(artist) {
-    var html = `<button type="button" class="js-remove">` +
-        `${artist}  X` +
-        `</button>`;
+    var html =
+        `<div class="state-display">` +
+        `<a href="#" class="js-remove show-state" id="${artist}">${artist}<span> X</span></a>` +
+        `</div>`;
     return html;
 }
 
