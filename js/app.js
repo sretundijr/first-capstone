@@ -6,6 +6,7 @@ var TASTE_DIVE_MOCK_URL = 'https://private-8723d-tastedive.apiary-mock.com/api/s
 var SPOTIFY_BASE_URL = "https://api.spotify.com/v1/search";
 
 var state = {
+    query: [],
     similarArtists: [],
     hasArtists: function () {
         return this.similarArtists.length > 0;
@@ -75,21 +76,25 @@ function renderNoResultsFromTasteDive() {
     $('.js-results').append('<p>No Results for the search please try again</p>');
 }
 
-function renderInputField() {
-    $('.js-add-input').append(addInputField);
+function resetInputField() {
+    // $('.js-search-form').html(addInputField);
+    $('.js-search-form')[0].reset();
     $('.js-query').focus();
 }
 
 function addArtistBtn() {
     $('.js-add-artist').on('click', function (e) {
-        renderInputField();
+        // console.debug($('.js-query').val());
+        state.query.push($('.js-query').val());
+        console.debug(state.query);
+        resetInputField();
     })
 }
 
 function removeTextField() {
     $('.js-remove-text-btn').on('click', function (e) {
         $('.js-query').remove();
-        renderInputField();
+        // renderInputField();
     })
 }
 
@@ -98,12 +103,12 @@ function watchSubmit() {
         e.preventDefault();
         //clear state of old data
         state.similarArtists = [];
-        state.query = "";
-        var query = $('input[name^=artists]').map(function (item, index) {
-            return $(this).val();
-        })
+        // state.query = "";
+        // var query = $('input[name^=artists]').map(function (item, index) {
+        //     return $(this).val();
+        // })
         //the get method here removes the jquery element object that gets added to the last index
-        state.query = query.get();
+        state.query.push($('.js-query').val());
         getDataFromTasteDive(state.query).then(tasteDiveResults);
         renderSimilarArtists();
     });
