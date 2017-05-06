@@ -77,7 +77,6 @@ function renderNoResultsFromTasteDive() {
 }
 
 function resetInputField() {
-    // $('.js-search-form').html(addInputField);
     $('.js-search-form')[0].reset();
     $('.js-query').focus();
 }
@@ -101,10 +100,6 @@ function watchSubmit() {
         e.preventDefault();
         //clear state of old data
         state.similarArtists = [];
-        // state.query = "";
-        // var query = $('input[name^=artists]').map(function (item, index) {
-        //     return $(this).val();
-        // })
         //the get method here removes the jquery element object that gets added to the last index
         state.query.push($('.js-query').val());
         getDataFromTasteDive(state.query).then(tasteDiveResults);
