@@ -102,6 +102,7 @@ function submitToTastDive() {
             state.query.push(currentInput);
         }
         getDataFromTasteDive(state.query).then(tasteDiveResults);
+        renderQueryList(state);
     });
 }
 
