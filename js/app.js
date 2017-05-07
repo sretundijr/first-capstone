@@ -89,7 +89,6 @@ function renderQueryList(state) {
 
 function resetInputField() {
     $('.js-search-form')[0].reset();
-    $('.js-query').focus();
 }
 
 function submitToTastDive() {
@@ -103,6 +102,7 @@ function submitToTastDive() {
         }
         getDataFromTasteDive(state.query).then(tasteDiveResults);
         renderQueryList(state);
+        resetInputField();
     });
 }
 
