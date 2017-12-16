@@ -34,9 +34,6 @@ function getDataFromSpotify(band) {
         q: band,
         type: "artist",
         limit: 1,
-        headers: {
-            'Authorization': 'Bearer ' + '797d7e1bcb5c445b9effec1320651ea1'
-        }
     }
     return Promise.resolve($.getJSON(SPOTIFY_BASE_URL, query));
 }
@@ -174,19 +171,7 @@ function htmlArtistImg(state, index) {
     return html;
 }
 
-function getAuthFromSpotify() {
-    var query = {
-        client_id: 'a572a9d3c96145f4bf151c192a1ea0b0',
-        response_type: 'token',
-        redirect_uri: "https://sretundijr.github.io/first-capstone/"
-    }
-    return Promise.resolve($.getJSON('https://accounts.spotify.com/authorize?callback=?', query));
-}
-
 $(function () {
-    getAuthFromSpotify().then(function (res) {
-        console.log(res);
-    });
     watchSubmit();
     submitToTastDive()
     stateListBtn();
