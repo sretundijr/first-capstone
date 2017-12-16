@@ -33,7 +33,10 @@ function getDataFromSpotify(band) {
     var query = {
         q: band,
         type: "artist",
-        limit: 1
+        limit: 1,
+        headers: {
+            'Authorization': 'Bearer ' + '797d7e1bcb5c445b9effec1320651ea1'
+        }
     }
     return Promise.resolve($.getJSON(SPOTIFY_BASE_URL, query));
 }
