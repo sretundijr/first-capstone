@@ -180,7 +180,7 @@ function getAuthFromSpotify() {
         response_type: 'token',
         redirect_uri: "https://sretundijr.github.io/first-capstone/"
     }
-    return Promise.resolve($.getJSON('https://accounts.spotify.com/authorize', query));
+    return Promise.resolve($.getJSON('https://accounts.spotify.com/authorize?callback=?', query));
 }
 
 $(function () {
