@@ -174,7 +174,22 @@ function htmlArtistImg(state, index) {
     return html;
 }
 
+function getAuthFromSpotify(band) {
+    var query = {
+        headers: {
+            'Authorization': 'Basic ' + 'a572a9d3c96145f4bf151c192a1ea0b0:797d7e1bcb5c445b9effec1320651ea1'
+        },
+        client_id: 'a572a9d3c96145f4bf151c192a1ea0b0',
+        response_type: 'token',
+        redirect_uri: "https://sretundijr.github.io/first-capstone/"
+    }
+    return Promise.resolve($.getJSON('https://accounts.spotify.com/authorize', query));
+}
+
 $(function () {
+    getAuthFromSpotify().then(function (res) {
+        console.log(res);
+    });
     watchSubmit();
     submitToTastDive()
     stateListBtn();
