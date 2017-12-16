@@ -174,7 +174,7 @@ function htmlArtistImg(state, index) {
     return html;
 }
 
-function getAuthFromSpotify(band) {
+function getAuthFromSpotify() {
     var query = {
         headers: {
             'Authorization': 'Basic ' + 'a572a9d3c96145f4bf151c192a1ea0b0:797d7e1bcb5c445b9effec1320651ea1'
