@@ -39,10 +39,9 @@ function getDataFromSpotify(band) {
 }
 
 function spotifyResults(data) {
-    console.log(data.body);
     state.similarArtists.forEach(function (art, index) {
         // art.Thumbnail = data[index].artists.items[0].images;
-        // art.ArtistId = data[index].artists.items[0].id;
+        art.ArtistId = data[index].artists.items[0].id;
     });
     renderSimilarArtists();
 }
@@ -62,10 +61,6 @@ function tasteDiveResults(data) {
 // https://sheltered-crag-46179.herokuapp.com/spotify
 
 function sendResultsToSpotify(data) {
-    // var promises = data.map(function (item, index) {
-    //     return getDataFromSpotify(item.Name);
-    // })
-    // Promise.all(promises).then(spotifyResults);
     fetch('https://sheltered-crag-46179.herokuapp.com/spotify', {
         method: 'POST',
         headers: {
@@ -76,8 +71,9 @@ function sendResultsToSpotify(data) {
         .then(function (results) {
             return results.json();
         })
-        .then(function (results) {
-            console.log(results);
+        .then(function (parsedResults) {
+            console.log(parsedResults);
+            spotifyResults(parsedResults);
         })
 }
 
