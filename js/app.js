@@ -170,7 +170,7 @@ function artistImg(list) {
         return (
             '<div>' +
             '<img class="artist-img" src="' +
-            state.Thumbnail[0].url + '" alt="placeholder">' +
+            list[0].url + '" alt="placeholder">' +
             '</div>'
         )
     }
@@ -179,7 +179,7 @@ function artistImg(list) {
 
 function htmlArtistImg(state, index) {
     var html = '<div class="img-container">' +
-        artistImg() +
+        artistImg(state.Thumbnail) +
         '<div>' +
         '<iframe class="spotify-iframe" src="https://open.spotify.com/embed?uri=spotify:' +
         'artist:' + state.ArtistId + '"' +
