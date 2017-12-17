@@ -66,7 +66,7 @@ function sendResultsToSpotify(data) {
     // })
     // Promise.all(promises).then(spotifyResults);
     fetch('https://sheltered-crag-46179.herokuapp.com/spotify', {
-        method: 'GET',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
