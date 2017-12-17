@@ -41,7 +41,7 @@ function getDataFromSpotify(band) {
 function spotifyResults(data) {
     console.log(data);
     state.similarArtists.forEach(function (art, index) {
-        // art.Thumbnail = data[index].artists.items[0].images;
+        art.Thumbnail = data[index].artists.items[0].images;
         art.ArtistId = data[index].artists.items[0].id;
     });
     renderSimilarArtists();
@@ -149,10 +149,10 @@ function showCurrentStateTemplate(artist) {
 }
 
 function htmlTemplate(artist, index) {
-    var img = htmlArtistImg(artist, index);
-    // if (artist.Thumbnail) {
-    //     img = htmlArtistImg(artist, index);
-    // }
+    var img = '';
+    if (artist.Thumbnail) {
+        img = htmlArtistImg(artist, index);
+    }
     var html = '<div class="row main-container">' +
         '<div class="col-8">' +
         '<div class="artist-container">' +
@@ -167,13 +167,14 @@ function htmlTemplate(artist, index) {
     return html;
 }
 
-// '<div>' +
-// '<img class="artist-img" src="' +
-// state.Thumbnail[0].url + '" alt="placeholder">' +
-// '</div>' +
+
 
 function htmlArtistImg(state, index) {
     var html = '<div class="img-container">' +
+        '<div>' +
+        '<img class="artist-img" src="' +
+        state.Thumbnail[0].url + '" alt="placeholder">' +
+        '</div>' +
         '<div>' +
         '<iframe class="spotify-iframe" src="https://open.spotify.com/embed?uri=spotify:' +
         'artist:' + state.ArtistId + '"' +
