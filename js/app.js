@@ -40,7 +40,7 @@ function getDataFromSpotify(band) {
 
 function spotifyResults(data) {
     state.similarArtists.forEach(function (art, index) {
-        art.Thumbnail = data[index].artists.items[0].images;
+        // art.Thumbnail = data[index].artists.items[0].images;
         art.ArtistId = data[index].artists.items[0].id;
     })
     renderSimilarArtists();
