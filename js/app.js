@@ -59,8 +59,6 @@ function tasteDiveResults(data) {
     }
 }
 
-// https://sheltered-crag-46179.herokuapp.com/spotify
-
 function sendResultsToSpotify(data) {
     fetch('https://sheltered-crag-46179.herokuapp.com/spotify', {
         method: 'POST',
@@ -167,14 +165,20 @@ function htmlTemplate(artist, index) {
     return html;
 }
 
-
+function artistImg(list) {
+    if (list.length > 0) {
+        return (
+            '<div>' +
+            '<img class="artist-img" src="' +
+            state.Thumbnail[0].url + '" alt="placeholder">' +
+            '</div>'
+        )
+    }
+}
 
 function htmlArtistImg(state, index) {
     var html = '<div class="img-container">' +
-        '<div>' +
-        '<img class="artist-img" src="' +
-        state.Thumbnail[0].url + '" alt="placeholder">' +
-        '</div>' +
+        artist() +
         '<div>' +
         '<iframe class="spotify-iframe" src="https://open.spotify.com/embed?uri=spotify:' +
         'artist:' + state.ArtistId + '"' +
