@@ -178,7 +178,7 @@ function artistImg(list) {
 
 function htmlArtistImg(state, index) {
     var html = '<div class="img-container">' +
-        artist() +
+        artistImg() +
         '<div>' +
         '<iframe class="spotify-iframe" src="https://open.spotify.com/embed?uri=spotify:' +
         'artist:' + state.ArtistId + '"' +
