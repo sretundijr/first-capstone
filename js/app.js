@@ -150,10 +150,10 @@ function showCurrentStateTemplate(artist) {
 }
 
 function htmlTemplate(artist, index) {
-    var img = "";
-    if (artist.Thumbnail) {
-        img = htmlArtistImg(artist, index);
-    }
+    var img = htmlArtistImg(artist, index);
+    // if (artist.Thumbnail) {
+    //     img = htmlArtistImg(artist, index);
+    // }
     var html = '<div class="row main-container">' +
         '<div class="col-8">' +
         '<div class="artist-container">' +
