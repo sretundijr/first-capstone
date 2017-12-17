@@ -174,6 +174,7 @@ function artistImg(list) {
             '</div>'
         )
     }
+    return '';
 }
 
 function htmlArtistImg(state, index) {
