@@ -74,9 +74,11 @@ function sendResultsToSpotify(data) {
         body: JSON.stringify(data),
     })
         .then(function (results) {
-            console.log(results)
-            spotifyResults(results)
-        });
+            return results.json();
+        })
+        .then(function (results) {
+            console.log(results);
+        })
 }
 
 function renderSimilarArtists() {
