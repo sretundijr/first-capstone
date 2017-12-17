@@ -43,7 +43,7 @@ function spotifyResults(data) {
     state.similarArtists.forEach(function (art, index) {
         // art.Thumbnail = data[index].artists.items[0].images;
         // art.ArtistId = data[index].artists.items[0].id;
-    })
+    });
     renderSimilarArtists();
 }
 
@@ -73,7 +73,10 @@ function sendResultsToSpotify(data) {
         },
         body: JSON.stringify(data),
     })
-        .then(function (results) { spotifyResults(results) });
+        .then(function (results) {
+            console.log(results)
+            spotifyResults(results)
+        });
 }
 
 function renderSimilarArtists() {
