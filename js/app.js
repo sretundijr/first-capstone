@@ -39,7 +39,7 @@ function getDataFromSpotify(band) {
 }
 
 function spotifyResults(data) {
-    console.log(data);
+    console.log(data.body);
     state.similarArtists.forEach(function (art, index) {
         // art.Thumbnail = data[index].artists.items[0].images;
         // art.ArtistId = data[index].artists.items[0].id;
@@ -74,7 +74,7 @@ function sendResultsToSpotify(data) {
         body: JSON.stringify(data),
     })
         .then(function (results) {
-            console.log(results)
+            console.log(results.body)
             spotifyResults(results)
         });
 }
