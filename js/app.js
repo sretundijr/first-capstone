@@ -74,7 +74,7 @@ function sendResultsToSpotify(data) {
         body: JSON.stringify(data),
     })
         .then(function (results) {
-            console.log(results.body)
+            console.log(results)
             spotifyResults(results)
         });
 }
