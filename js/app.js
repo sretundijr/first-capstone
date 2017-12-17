@@ -58,11 +58,21 @@ function tasteDiveResults(data) {
     }
 }
 
+// https://sheltered-crag-46179.herokuapp.com/spotify
+
 function sendResultsToSpotify(data) {
-    var promises = data.map(function (item, index) {
-        return getDataFromSpotify(item.Name);
+    // var promises = data.map(function (item, index) {
+    //     return getDataFromSpotify(item.Name);
+    // })
+    // Promise.all(promises).then(spotifyResults);
+    fetch('https://sheltered-crag-46179.herokuapp.com/spotify', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
     })
-    Promise.all(promises).then(spotifyResults);
+        .then(function (results) { spotifyResults(results) });
 }
 
 function renderSimilarArtists() {
