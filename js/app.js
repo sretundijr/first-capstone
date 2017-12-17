@@ -168,12 +168,13 @@ function htmlTemplate(artist, index) {
     return html;
 }
 
+// '<div>' +
+// '<img class="artist-img" src="' +
+// state.Thumbnail[0].url + '" alt="placeholder">' +
+// '</div>' +
+
 function htmlArtistImg(state, index) {
     var html = '<div class="img-container">' +
-        '<div>' +
-        '<img class="artist-img" src="' +
-        state.Thumbnail[0].url + '" alt="placeholder">' +
-        '</div>' +
         '<div>' +
         '<iframe class="spotify-iframe" src="https://open.spotify.com/embed?uri=spotify:' +
         'artist:' + state.ArtistId + '"' +
