@@ -174,7 +174,11 @@ function artistImg(list) {
             '</div>'
         )
     }
-    return '';
+    return (
+        '<div>' +
+        '<p>No Image Available</p>' +
+        '</div>'
+    );
 }
 
 function htmlArtistImg(state, index) {
